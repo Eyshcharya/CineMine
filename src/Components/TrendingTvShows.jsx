@@ -1,12 +1,16 @@
-import { useGetTrendingTvShowsQuery } from '../Features/API/movieApi';
+import { useGetTrendingTvShowsQuery } from '../Features/TvShowSlice';
 import TrendingList from './TrendingList';
+
 const TrendingTvShows = () => {
   const { data } = useGetTrendingTvShowsQuery();
+
   return (
     <div>
+      <hr />
       <div className='TrendingTvShows'>
-        <h3> Trending TV Shows</h3>
+        <h2> • Trending TV Shows</h2>
       </div>
+
       {/* The trending TV Shows are mapped here */}
       <div className='tvShow-container'>
         {data?.results?.map((tvs) => {

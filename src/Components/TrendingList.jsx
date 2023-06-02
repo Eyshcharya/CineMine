@@ -1,16 +1,12 @@
-import { PlayIcon, StarIcon } from '../assets/icons';
+import { Link } from 'react-router-dom';
 
-StarIcon;
-const TrendingList = ({
-  original_title,
-  vote_average,
-  poster_path,
-  release_date,
-  original_name,
-  first_air_date,
-}) => {
-  const url = `https://image.tmdb.org/t/p/w500${poster_path}`;
+const TrendingList = ({ id, vote_average, poster_path }) => {
+  const url = `https://image.tmdb.org/t/p/original/${poster_path}`;
 
+  const handleBtn = (id) => {
+    // console.log(id);
+    localStorage.setItem('IdHolder', JSON.stringify(id));
+  };
   return (
     <div className='movie'>
       <div className='movie-poster'>
@@ -23,30 +19,18 @@ const TrendingList = ({
           </div>
           <h5>{vote_average.toFixed(1)}</h5>
         </div>
-        <div className='layer'>
-          <div className='layer-container'>
-            <div className='play-icon'>
-              <a href=''>
-                <PlayIcon />
-              </a>
-            </div>
-
-            {original_title ? (
-              <>
-                <h3>{original_title}</h3>
-                <h6>{release_date}</h6>
-              </>
-            ) : (
-              <>
-                <h3>{original_name}</h3>
-                <h6>{first_air_date}</h6>
-              </>
-            )}
-          </div>
-        </div>
-        <img src={url} alt='movie-poster' />
+        <button
+          onClick={() => {
+            handleBtn(id);
+          }}
+        >
+          <Link to={`/movies/${id}`}>
+            <img src={url} alt='movie-poster' />
+          </Link>
+        </button>
       </div>
     </div>
   );
 };
+
 export default TrendingList;

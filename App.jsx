@@ -8,6 +8,7 @@ import Movies from './src/Components/Movies';
 import TvShows from './src/Components/TvShows';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contact from './src/Components/Contact';
+import SingleMovie from './src/Components/SingleMovie';
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,8 +17,13 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error />} />
         <Route path='favourites' element={<Favourites />} />
+
+        <Route path='movies'>
+          <Route index element={<Movies />} />
+          <Route path=':movieID' element={<SingleMovie />} />
+        </Route>
+
         <Route path='genre' element={<Genre />} />
-        <Route path='movies' element={<Movies />} />
         <Route path='tvshows' element={<TvShows />} />
         <Route path='contact' element={<Contact />} />
       </Routes>

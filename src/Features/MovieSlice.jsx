@@ -1,12 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { ApiSlice } from './ApiSlice';
+const key = 'api_key=a8775f2acee61a2df161c7974b74a599';
 
-const initialState = {
-  movies: [],
-};
-
-const movieSlice = createSlice({
-  name: 'home',
-  initialState,
-  reducers: {},
+export const moviesSlice = ApiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getTrendingMovies: builder.query({
+      query: () => `/3/trending/movie/day?${key}`,
+    }),
+    getSingleMovie: builder.query({
+      query: (id) => `/3/movie/${id}?${key}`,
+    }),
+  }),
 });
-export default movieSlice.reducer;
+
+export const { useGetTrendingMoviesQuery, useGetSingleMovieQuery } =
+  moviesSlice;

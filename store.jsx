@@ -1,13 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import movieReducer from './src/Features/MovieSlice';
-import { movieApi } from './src/Features/API/movieApi';
+import { ApiSlice } from './src/Features/ApiSlice';
 
 export const store = configureStore({
   reducer: {
-    movie: movieReducer,
-    [movieApi.reducerPath]: movieApi.reducer,
+    [ApiSlice.reducerPath]: ApiSlice.reducer,
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(movieApi.middleware),
+    getDefaultMiddleware().concat(ApiSlice.middleware),
 });

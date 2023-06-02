@@ -1,9 +1,11 @@
-import { useGetTrendingMoviesQuery } from '../Features/API/movieApi';
 import Navbar from './Navbar';
-import TrendingList from './TrendingList';
+import { useGetTrendingMoviesQuery } from '../Features/MovieSlice';
+
+import TrendingMovies from './TrendingMovies';
 import TrendingTvShows from './TrendingTvShows';
+
 const Home = () => {
-  const { data, isError, isLoading } = useGetTrendingMoviesQuery();
+  const { isError, isLoading } = useGetTrendingMoviesQuery();
 
   if (isLoading) {
     return <h2>Loading...</h2>;
@@ -39,16 +41,7 @@ const Home = () => {
             <div className='wave wave4'></div>
           </section>
         </div>
-
-        <div className='page-text'>
-          <h3> Trending Movies</h3>
-        </div>
-        {/* The trending movies are mapped here */}
-        <div className='movie-container'>
-          {data?.results?.map((movie) => {
-            return <TrendingList key={movie.id} {...movie} />;
-          })}
-        </div>
+        <TrendingMovies />
         <TrendingTvShows />
       </div>
     </div>
