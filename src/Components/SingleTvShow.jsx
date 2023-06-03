@@ -1,20 +1,20 @@
-import { useGetSingleMovieQuery } from '../Features/MovieSlice';
+import { useGetSingleTvShowQuery } from '../Features/TvShowSlice';
 import { HeartIcon } from '../assets/icon';
 
-const SingleItem = () => {
+const SingleTvShow = () => {
   const id = JSON.parse(localStorage.getItem('IdHolder')) || [];
 
-  const { data: getMovie } = useGetSingleMovieQuery(id);
+  const { data: getTvShow } = useGetSingleTvShowQuery(id);
 
-  const title = getMovie?.original_title;
-  const backDrop = getMovie?.backdrop_path;
-  const poster = getMovie?.poster_path;
-  const voteRate = getMovie?.vote_average.toFixed(1);
-  const runtime = getMovie?.runtime;
-  const overview = getMovie?.overview;
-  const genres = getMovie?.genres;
-  const date = getMovie?.release_date;
-  const tagline = getMovie?.tagline;
+  const title = getTvShow?.original_name;
+  const backDrop = getTvShow?.backdrop_path;
+  const poster = getTvShow?.poster_path;
+  const voteRate = getTvShow?.vote_average.toFixed(1);
+  const seasons = getTvShow?.number_of_seasons;
+  const overview = getTvShow?.overview;
+  const genres = getTvShow?.genres;
+  const date = getTvShow?.first_air_date;
+  const tagline = getTvShow?.tagline;
 
   const newDate = new Date(date);
   const year = newDate.getFullYear();
@@ -53,7 +53,9 @@ const SingleItem = () => {
               <h5>{voteRate}</h5>
             </div>
             <span className='year'>{year}</span>
-            <span className='runtime'>{runtime} min</span>
+            <span className='runtime'>
+              {seasons > 1 ? `${seasons} seasons` : `${seasons} season`}
+            </span>
             <div className='heart-icon'>
               <button>
                 <HeartIcon />
@@ -65,7 +67,6 @@ const SingleItem = () => {
           </div>
           <article className='overview'>
             <p>{overview}</p>
-
             <div className='genres'>
               Genres :
               {genres?.map(({ id, name }) => {
@@ -81,4 +82,4 @@ const SingleItem = () => {
     </div>
   );
 };
-export default SingleItem;
+export default SingleTvShow;
