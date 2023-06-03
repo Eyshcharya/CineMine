@@ -1,14 +1,17 @@
-import Error from './src/Components/Error';
-import Home from './src/Components/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Error from './src/Pages/Error';
+import Home from './src/Pages/Home';
 import Favourites from './src/Components/Favourites';
-import Genre from './src/Components/Genre';
+import Genre from './src/Pages/Genre';
 import Navbar from './src/Components/Navbar';
 import Footer from './src/Components/Footer';
-import Movies from './src/Components/Movies';
-import TvShows from './src/Components/TvShows';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Contact from './src/Components/Contact';
+import Movies from './src/Pages/Movies/Movies';
+import TvShows from './src/Pages/TvShows/TvShows';
+import Contact from './src/Pages/Contact';
 import SingleMovie from './src/Components/SingleMovie';
+import SingleTvShow from './src/Components/SingleTvShow';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -22,9 +25,12 @@ const App = () => {
           <Route index element={<Movies />} />
           <Route path=':movieID' element={<SingleMovie />} />
         </Route>
+        <Route path='tv'>
+          <Route index element={<TvShows />} />
+          <Route path=':tvID' element={<SingleTvShow />} />
+        </Route>
 
         <Route path='genre' element={<Genre />} />
-        <Route path='tvshows' element={<TvShows />} />
         <Route path='contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>
