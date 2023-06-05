@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { StarIcon } from '../assets/icon';
 
 const TrendingList = ({ id, original_title, vote_average, poster_path }) => {
   const url = `https://image.tmdb.org/t/p/original/${poster_path}`;
@@ -12,10 +13,7 @@ const TrendingList = ({ id, original_title, vote_average, poster_path }) => {
       <div className='movie-poster'>
         <div className='rate-badge'>
           <div className='rate-icon'>
-            <img
-              src='https://www.freepnglogos.com/uploads/star-png/star-alt-icon-small-flat-iconset-paomedia-13.png'
-              alt='rate-icon'
-            />
+            <StarIcon />
           </div>
           <h5>{vote_average.toFixed(1)}</h5>
         </div>
