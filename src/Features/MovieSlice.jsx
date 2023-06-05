@@ -9,8 +9,14 @@ export const moviesSlice = ApiSlice.injectEndpoints({
     getSingleMovie: builder.query({
       query: (id) => `/3/movie/${id}?${key}&language=en-US`,
     }),
+    getPopularMovie: builder.query({
+      query: () => `/3/movie/popular?${key}`,
+    }),
   }),
 });
 
-export const { useGetTrendingMoviesQuery, useGetSingleMovieQuery } =
-  moviesSlice;
+export const {
+  useGetTrendingMoviesQuery,
+  useGetSingleMovieQuery,
+  useGetPopularMovieQuery,
+} = moviesSlice;

@@ -1,4 +1,7 @@
+import { useGetPopularMovieQuery } from '../../Features/MovieSlice';
+
 const Movies = () => {
-  return <div>Movies</div>;
+  const { data } = useGetPopularMovieQuery();
+  return <div></div>;
 };
 export default Movies;
