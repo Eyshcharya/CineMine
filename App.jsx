@@ -15,7 +15,7 @@ import SingleTvShow from './src/Components/SingleTvShow';
 const App = () => {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      {/*  */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error />} />
