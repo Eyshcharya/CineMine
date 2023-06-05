@@ -57,7 +57,7 @@ nav {
   background: transparent;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1rem;
 }
 .navbar {
   display: grid;
@@ -65,7 +65,7 @@ nav {
   text-align: center;
   background-color: transparent;
   border-radius: 1rem;
-  border: 1px solid lightblue;
+  border: 1px solid rgb(185, 238, 255);
 }
 .navbar a {
   color: var(--clr-blue-dark);
@@ -74,6 +74,16 @@ nav {
 }
 .navbar a:hover {
   color: var(--clr-blue-green);
+}
+.shared-navbar {
+  position: relative;
+  top: -29rem;
+  left: 0rem;
+  width: 500px;
+  border-color: rgb(185, 238, 255);
+}
+.shared-navbar a {
+  color: rgb(185, 238, 255);
 }
 
 /* 
@@ -236,7 +246,7 @@ Trending Movie List
   padding-left: 0.5rem;
 }
 
-.rate-icon img {
+.rate-icon svg {
   width: 15px;
   padding-top: 0.3rem;
   margin-right: 0.5rem;
@@ -306,8 +316,8 @@ Single-Item
 }
 .addToFavoriteText {
   position: absolute;
-  top: -1rem;
-  left: 14.6rem;
+  top: -0.5rem;
+  left: 14.7rem;
   line-height: normal;
   font-size: 10px;
   color: #fff;
@@ -315,6 +325,7 @@ Single-Item
   padding: 0.5rem;
   border-radius: 1rem;
   display: none;
+  min-width: max-content;
 }
 .heart-icon:hover svg {
   fill: white;
@@ -398,20 +409,6 @@ Single-Item
   .tagline {
     top: 0;
   }
-}
-.poster-wave {
-  position: absolute;
-  top: 60rem;
-  left: 0rem;
-  min-width: 100vw;
-  height: 100px;
-  background: url(./src/assets/wave3.png);
-  background-size: 100vw 100px;
-}
-.poster-wave.wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
 }
 
 /* @media screen and (width<900px) {
