@@ -1,4 +1,8 @@
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <div className='footer-wave'>
+      <div className='footer'></div>
+    </div>
+  );
 };
 export default Footer;
