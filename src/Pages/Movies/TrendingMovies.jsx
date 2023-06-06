@@ -6,10 +6,6 @@ const TrendingMovies = () => {
 
   return (
     <div>
-      <div className='page-text'>
-        <h2> • Trending Movies</h2>
-      </div>
-
       {/* The trending movies are mapped here */}
       <div className='movie-container'>
         {data?.results?.map((movie) => {

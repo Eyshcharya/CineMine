@@ -15,7 +15,6 @@ import SingleTvShow from './src/Components/SingleTvShow';
 const App = () => {
   return (
     <BrowserRouter>
-      {/*  */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error />} />
@@ -32,6 +31,10 @@ const App = () => {
 
         <Route path='genre' element={<Genre />} />
         <Route path='contact' element={<Contact />} />
+        <Route path='favorites' element={<Favourites />} />
+
+        <Route path='foot' element={<Footer />} />
+        <Route path='nav' element={<Navbar />} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,12 +5,8 @@ const Navbar = () => {
         <a href='/'>Home</a>
         <a href='/movies'>Movies</a>
         <a href='/tv'>TV Shows</a>
-
         <a href='/genre'>Genres</a>
-
-        {/* <a href='/favourites'>Favourites</a>
-        <p> </p>
-        <a href='/contact'>Contact Us</a> */}
+        <a href='/favorites'>Favorites</a>
       </div>
     </nav>
   );

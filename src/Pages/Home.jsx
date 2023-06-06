@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
+
 import { useGetTrendingMoviesQuery } from '../Features/MovieSlice';
 
 import TrendingMovies from './Movies/TrendingMovies';
 import TrendingTvShows from './TvShows/TrendingTvShows';
 
 const Home = () => {
+  const [isMovieBtn, setIsMovieBtn] = useState(true);
+  const [isTvBtn, setIsTvBtn] = useState(false);
+
   const { isError, isLoading } = useGetTrendingMoviesQuery();
 
   if (isLoading) {
@@ -13,6 +19,15 @@ const Home = () => {
   if (isError) {
     return <h2>Something went wrong!</h2>;
   }
+
+  const handleMovieBtn = () => {
+    setIsMovieBtn(true);
+  };
+  const handleTvBtn = () => {
+    setIsTvBtn(true);
+    setIsMovieBtn(false);
+  };
+
   return (
     <div>
       <div className='page-container'>
@@ -42,9 +57,15 @@ const Home = () => {
             <div className='wave wave4'></div>
           </section>
         </div>
-        <TrendingMovies />
-        <TrendingTvShows />
+        <div className='page-text'>
+          <h3>Trending Now </h3>
+          <button onClick={handleMovieBtn}> Movies</button>
+          <button onClick={handleTvBtn}>TV Shows</button>
+        </div>
+        {isMovieBtn && <TrendingMovies />}
+        {isTvBtn && <TrendingTvShows />}
       </div>
+      <Footer />
     </div>
   );
 };
