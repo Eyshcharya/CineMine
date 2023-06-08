@@ -61,7 +61,7 @@ nav {
 }
 .navbar {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 10px;
+  grid-template-columns: 0.9fr 1fr 1fr 1.3fr;
   text-align: center;
   background-color: transparent;
   border-radius: 1rem;
@@ -355,7 +355,6 @@ Single-Item
   background-position: center;
   background-position-y: 45px;
   background-repeat: no-repeat;
-  /* max-height: 110vh; */
 }
 .poster img {
   position: absolute;
@@ -518,19 +517,100 @@ page-layout
 ===============
 */
 .main-layout {
-  position: absolute;
-  top: 0;
-  left: 17vw;
-  width: 83vw;
-  height: 100vh;
-  background-color: #98ded9;
+  position: relative;
+  top: 1.8rem;
+  left: 18rem;
+  color: #222fc4;
+}
+.main-layout p {
+  text-align: left;
+  font-size: medium;
+}
+.main-layout p a {
+  color: #3746f2;
+  margin: 0.1rem 0.5rem;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid #6471ff;
+  border-radius: 2rem;
+}
+.main-layout p a:hover {
+  color: white;
+  background-color: #6471ff;
+}
+.layout-container .one {
+  margin: 1rem 1rem;
+  display: grid;
+  max-width: 76vw;
+  grid-template-columns: 60% 35%;
+  column-gap: 4%;
+}
+.layout-container .two {
+  margin: 1rem 0rem;
+  margin-top: 0rem;
+  display: grid;
+  max-width: 76vw;
+  grid-template-columns: 34% 34% 34%;
+}
+.one article,
+.two article {
+  padding: 1rem;
+  font-size: 15px;
+  color: white;
+}
+.one article {
+  margin: 1rem 0.5rem;
+  text-align: left;
+  min-height: 40vh;
+  padding-left: 3rem;
+}
+.two article {
+  text-align: left;
+  margin: 0.8rem 1.2rem;
+  min-height: 38vh;
+  padding-left: 2rem;
+}
+
+article h4 {
+  background-color: #0000006e;
+  max-width: fit-content;
+  padding: 0.3rem 1rem;
+  border-radius: 1.5rem;
+}
+.Latest {
+  border-radius: 2rem;
+}
+.Popular {
+  background-color: #75fff6;
+  border-radius: 2rem;
+}
+.Top-rated {
+  background-color: #83ff75;
+  border-radius: 2rem;
+}
+.Trending {
+  background-color: #ffc375;
+  border-radius: 2rem;
+}
+.Upcoming {
+  background-color: #ff75df;
+  border-radius: 2rem;
 }
 @media screen and (width<900px) {
   .sidebar {
     min-width: 34vw;
   }
-  .main-layout {
-    width: 66vw;
-    left: 34vw;
+  .layout-container .one {
+    grid-template-columns: 1fr;
+  }
+  .layout-container .two {
+    grid-template-columns: 1fr;
+  }
+  .one article {
+    width: 53vw;
+    height: 35vh;
+  }
+  .two article {
+    width: 53vw;
+    height: 35vh;
   }
 }

@@ -12,11 +12,23 @@ export const moviesSlice = ApiSlice.injectEndpoints({
     getPopularMovie: builder.query({
       query: () => `/3/movie/popular?${key}`,
     }),
+    getLatestMovie: builder.query({
+      query: () => `/3/movie/now_playing?${key}`,
+    }),
+    getTopRatedMovie: builder.query({
+      query: () => `/3/movie/top_rated?${key}`,
+    }),
+    getUpcomingMovie: builder.query({
+      query: () => `/3/movie/upcoming?${key}`,
+    }),
   }),
 });
 
 export const {
-  useGetTrendingMoviesQuery,
   useGetSingleMovieQuery,
   useGetPopularMovieQuery,
+  useGetLatestMovieQuery,
+  useGetTopRatedMovieQuery,
+  useGetTrendingMoviesQuery,
+  useGetUpcomingMovieQuery,
 } = moviesSlice;
