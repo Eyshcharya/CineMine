@@ -469,16 +469,20 @@ sidebar
 ===============
 */
 .sidebar {
-  padding: 2rem 0;
-  position: relative;
+  padding: 1rem 0;
+  padding-top: 2rem;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100vh;
   max-width: 17vw;
   border-right: 22px solid white;
   border-left: 22px solid white;
-  padding-top: 50vh;
   background-color: lavender;
+  text-align: left;
+}
+.sidebar h4 {
+  padding-left: 2rem;
 }
 .sidebar a {
   display: block;
@@ -490,6 +494,10 @@ sidebar
   text-align: left;
   position: relative;
 }
+.sidebar hr {
+  fill-rule: var(--clr-blue-dark);
+  margin: 1.2rem 2rem;
+}
 .sidebar a:hover {
   background-color: rgb(119, 119, 255);
   color: white;
@@ -499,6 +507,10 @@ sidebar
   position: absolute;
   left: 2.3rem;
   top: 0.6rem;
+}
+.sidebar p {
+  text-align: center;
+  font-size: small;
 }
 /* 
 ===============

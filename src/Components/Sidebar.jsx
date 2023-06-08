@@ -5,11 +5,32 @@ import {
   TvIcon,
   GenreIcon,
   FavIcon,
+  LibraryIcon,
+  FireIcon,
+  StarsIcon,
+  RecentIcon,
+  UpcomingIcon,
 } from '../assets/icon.jsx';
 
 const Sidebar = () => {
   return (
     <div className='sidebar'>
+      <h4>Library</h4>
+      <Link to=''>
+        <FireIcon /> Trending
+      </Link>
+      <Link to=''>
+        <StarsIcon /> Top Rated
+      </Link>
+      <Link to=''>
+        <RecentIcon /> Recent
+      </Link>
+      <Link to=''>
+        <UpcomingIcon /> Upcoming
+      </Link>
+      <hr />
+      <h4>Site Map</h4>
+
       <Link to='/'>
         <HomeIcon /> Home
       </Link>
@@ -26,6 +47,8 @@ const Sidebar = () => {
         <FavIcon />
         Favorites
       </Link>
+      <hr />
+      <p>2023 &copy; CineMine</p>
     </div>
   );
 };
