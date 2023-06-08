@@ -12,6 +12,7 @@ import Contact from './src/Pages/Contact';
 import SingleMovie from './src/Components/SingleMovie';
 import SingleTvShow from './src/Components/SingleTvShow';
 import Sidebar from './src/Components/Sidebar';
+import MovieLayout from './src/Pages/Movies/MovieLayout';
 
 const App = () => {
   return (
@@ -21,11 +22,11 @@ const App = () => {
         <Route path='*' element={<Error />} />
         <Route path='favourites' element={<Favourites />} />
 
-        <Route path='movies' element={<Sidebar />}>
+        <Route path='movies'>
           <Route index element={<Movies />} />
           <Route path=':movieID' element={<SingleMovie />} />
         </Route>
-        <Route path='tv' element={<Sidebar />}>
+        <Route path='tv'>
           <Route index element={<TvShows />} />
           <Route path=':tvID' element={<SingleTvShow />} />
         </Route>
