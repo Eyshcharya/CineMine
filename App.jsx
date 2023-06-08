@@ -11,6 +11,7 @@ import TvShows from './src/Pages/TvShows/TvShows';
 import Contact from './src/Pages/Contact';
 import SingleMovie from './src/Components/SingleMovie';
 import SingleTvShow from './src/Components/SingleTvShow';
+import Sidebar from './src/Components/Sidebar';
 
 const App = () => {
   return (
@@ -20,11 +21,11 @@ const App = () => {
         <Route path='*' element={<Error />} />
         <Route path='favourites' element={<Favourites />} />
 
-        <Route path='movies'>
+        <Route path='movies' element={<Sidebar />}>
           <Route index element={<Movies />} />
           <Route path=':movieID' element={<SingleMovie />} />
         </Route>
-        <Route path='tv'>
+        <Route path='tv' element={<Sidebar />}>
           <Route index element={<TvShows />} />
           <Route path=':tvID' element={<SingleTvShow />} />
         </Route>

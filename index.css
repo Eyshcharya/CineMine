@@ -465,86 +465,60 @@ Single-Item
 
 /* 
 ===============
+sidebar
+===============
+*/
+.sidebar {
+  padding: 2rem 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  max-width: 17vw;
+  border-right: 22px solid white;
+  border-left: 22px solid white;
+  padding-top: 50vh;
+  background-color: lavender;
+}
+.sidebar a {
+  display: block;
+  margin: 1rem;
+  padding: 0.3rem 2rem;
+  padding-left: 4.6rem;
+  border-radius: 2rem;
+  color: #161d6f;
+  text-align: left;
+  position: relative;
+}
+.sidebar a:hover {
+  background-color: rgb(119, 119, 255);
+  color: white;
+}
+.sidebar svg {
+  width: 20px;
+  position: absolute;
+  left: 2.3rem;
+  top: 0.6rem;
+}
+/* 
+===============
 page-layout
 ===============
 */
-.page-layout {
-  display: grid;
-  grid-template-columns: 75vw 25vw;
+.main-layout {
+  position: absolute;
+  top: 0;
+  left: 17vw;
+  width: 83vw;
+  height: 100vh;
+  background-color: #98ded9;
 }
 @media screen and (width<900px) {
-  .page-layout {
-    grid-template-columns: 70vw 30vw;
+  .sidebar {
+    min-width: 34vw;
   }
-}
-.main-column {
-  min-height: 100vh;
-}
-.first-row {
-  min-height: 30vh;
-  display: grid;
-  grid-template-columns: 70% 30%;
-}
-.r1-block1 {
-  background-color: #98ded9;
-  max-height: 30vh;
-}
-.r1-block2 {
-  background-color: #19a7ce;
-}
-.second-row {
-  min-height: 35vh;
-  display: grid;
-  grid-template-columns: 27% 43% 30%;
-}
-.r2-block1 {
-  background-color: rgba(232, 101, 101, 0.863);
-}
-.r2-block2 {
-  background-color: rgba(244, 252, 79, 0.94);
-}
-.r2-block3 {
-  background-color: rgba(9, 12, 96, 0.863);
-}
-.third-row {
-  min-height: 35vh;
-  background-color: greenyellow;
-}
-
-.slideshow {
-  overflow: hidden;
-  margin: 0 1rem;
-}
-.slideshow-slider {
-  white-space: nowrap;
-  border-radius: 1rem;
-}
-.slide {
-  display: inline-block;
-  background-color: #fff;
-  min-height: 25vh;
-  min-width: 65%;
-  position: relative;
-  top: -9rem;
-}
-
-.genre-column {
-  background-color: #98ded9;
-  min-height: 100vh;
-}
-.gr1 {
-  background-color: peachpuff;
-  min-height: 10vh;
-}
-.gr2 {
-  background-color: plum;
-  min-height: 30vh;
-}
-.gr3 {
-  background-color: rgb(185, 208, 255);
-  min-height: 30vh;
-}
-.gr4 {
-  background-color: rgb(185, 255, 197);
-  min-height: 30vh;
+  .main-layout {
+    width: 66vw;
+    left: 34vw;
+  }
 }
