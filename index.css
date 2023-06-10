@@ -556,6 +556,8 @@ page-layout
   padding: 1rem;
   font-size: 15px;
   color: white;
+  position: relative;
+  transition: transform 0.3s;
 }
 .one article {
   margin: 1rem 0.5rem;
@@ -572,28 +574,26 @@ page-layout
 
 article h4 {
   background-color: #0000006e;
-  max-width: fit-content;
-  padding: 0.3rem 1rem;
-  border-radius: 1.5rem;
+  min-width: fit-content;
+  padding: 0.3rem 1.5rem;
+  border-radius: 2rem 0 2rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.Latest {
-  border-radius: 2rem;
-}
-.Popular {
-  background-color: #75fff6;
-  border-radius: 2rem;
-}
-.Top-rated {
-  background-color: #83ff75;
-  border-radius: 2rem;
-}
-.Trending {
-  background-color: #ffc375;
-  border-radius: 2rem;
-}
+
+.Latest,
+.Popular,
+.Top-rated,
+.Trending,
 .Upcoming {
-  background-color: #ff75df;
   border-radius: 2rem;
+}
+article:hover {
+  transform: scale(1.1);
+}
+article:hover h4 {
+  background-color: rgba(255, 0, 0, 0.852);
 }
 @media screen and (width<900px) {
   .sidebar {

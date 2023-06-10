@@ -7,7 +7,7 @@ const SingleTvShow = () => {
 
   const { data: getTvShow } = useGetSingleTvShowQuery(id);
 
-  const title = getTvShow?.original_name;
+  const title = getTvShow?.name;
   const backDrop = getTvShow?.backdrop_path;
   const poster = getTvShow?.poster_path;
   const voteRate = getTvShow?.vote_average.toFixed(1);
@@ -20,8 +20,8 @@ const SingleTvShow = () => {
   const newDate = new Date(date);
   const year = newDate.getFullYear();
 
-  const backgroundImg = `https://image.tmdb.org/t/p/original/${backDrop}`;
-  const posterImg = `https://image.tmdb.org/t/p/original/${poster}`;
+  const backgroundImg = `https://image.tmdb.org/t/p/original${backDrop}`;
+  const posterImg = `https://image.tmdb.org/t/p/original${poster}`;
 
   return (
     <div>
@@ -38,7 +38,7 @@ const SingleTvShow = () => {
           <Navbar />
         </div>
         <div className='poster'>
-          <img src={posterImg} alt='movie-poster' />
+          <img src={posterImg} alt='tv-poster' />
         </div>
         <div className='movie-details'>
           <h2>{title}</h2>

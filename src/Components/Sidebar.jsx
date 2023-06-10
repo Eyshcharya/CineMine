@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import {
   HomeIcon,
   MovieIcon,
@@ -11,21 +12,21 @@ import {
   UpcomingIcon,
 } from '../assets/icon.jsx';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <>
       <div className='sidebar'>
         <h4>Library</h4>
-        <Link to=''>
+        <Link to='/movies/trending'>
           <FireIcon /> Trending
         </Link>
-        <Link to=''>
+        <Link to='/movies/top_rated'>
           <StarsIcon /> Top Rated
         </Link>
-        <Link to=''>
+        <Link to='/movies/recent'>
           <RecentIcon /> Recent
         </Link>
-        <Link to=''>
+        <Link to='/movies/upcoming'>
           <UpcomingIcon /> Upcoming
         </Link>
         <hr />
