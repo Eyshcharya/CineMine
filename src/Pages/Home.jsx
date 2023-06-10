@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '../Components/Navbar';
+import Sidebar from '../Components/Sidebar';
 import Footer from '../Components/Footer';
 
 import { useGetTrendingMoviesQuery } from '../Features/MovieSlice';
@@ -33,6 +34,7 @@ const Home = () => {
       <div className='page-container'>
         <div className='head'>
           <Navbar />
+          {/* <Sidebar /> */}
           <h1>CineMine</h1>
           <h3>Grab a snack, We gotcha !</h3>
           <form action=''>

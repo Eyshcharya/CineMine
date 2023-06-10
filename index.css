@@ -102,6 +102,57 @@ Footer
   bottom: -35rem;
   background-color: #3586ff;
 }
+/* 
+===============
+sidebar
+===============
+*/
+.sidebar {
+  padding: 1rem 0;
+  padding-top: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  max-width: 17vw;
+  border-right: 22px solid white;
+  border-left: 22px solid white;
+  /* background-color: #4653dd; */
+  /* background-color: #707cff; */
+  background-color: rgb(223, 223, 255);
+  text-align: left;
+}
+.sidebar h4 {
+  padding-left: 2rem;
+}
+.sidebar a {
+  display: block;
+  margin: 1rem;
+  padding: 0.3rem 2rem;
+  padding-left: 4.6rem;
+  border-radius: 2rem;
+  color: var(--clr-blue-dark);
+  text-align: left;
+  position: relative;
+}
+.sidebar hr {
+  fill-rule: var(--clr-blue-dark);
+  margin: 1.2rem 2rem;
+}
+.sidebar a:hover {
+  background-color: rgb(119, 119, 255);
+  color: white;
+}
+.sidebar svg {
+  max-width: 21px;
+  position: absolute;
+  left: 2.3rem;
+  top: 0.6rem;
+}
+.sidebar p {
+  text-align: center;
+  font-size: small;
+}
 
 /* 
 =======
@@ -132,18 +183,19 @@ Home
   cursor: pointer;
   animation: bounce 2s ease-in-out infinite;
 }
+
 .head svg:hover {
   color: var(--clr-blue-green);
 }
 
-@media screen and (width<900px) {
+/* @media screen and (width<900px) {
   .sidebar {
     width: 26vw;
   }
   .sidebar-heading {
     left: 2.7rem;
   }
-}
+} */
 .head h1 {
   font-size: 70px;
   margin-bottom: 0;
@@ -232,6 +284,11 @@ Home
   }
   100% {
     background-position-x: -100vw;
+  }
+}
+@media screen and (width < 616px) {
+  .head {
+    width: 100vw;
   }
 }
 .page-text {
@@ -335,6 +392,19 @@ Trending TV Shows
   .rate-badge {
     position: absolute;
     left: 2.9rem;
+  }
+  .layer {
+    left: 1.94rem;
+  }
+}
+@media screen and (width<600px) {
+  .movie-container,
+  .tvShow-container {
+    grid-template-columns: 1fr;
+  }
+  .rate-badge {
+    position: absolute;
+    left: 2.1rem;
   }
   .layer {
     left: 1.94rem;
@@ -464,55 +534,6 @@ Single-Item
 
 /* 
 ===============
-sidebar
-===============
-*/
-.sidebar {
-  padding: 1rem 0;
-  padding-top: 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-height: 100vh;
-  max-width: 17vw;
-  border-right: 22px solid white;
-  border-left: 22px solid white;
-  background-color: lavender;
-  text-align: left;
-}
-.sidebar h4 {
-  padding-left: 2rem;
-}
-.sidebar a {
-  display: block;
-  margin: 1rem;
-  padding: 0.3rem 2rem;
-  padding-left: 4.6rem;
-  border-radius: 2rem;
-  color: #161d6f;
-  text-align: left;
-  position: relative;
-}
-.sidebar hr {
-  fill-rule: var(--clr-blue-dark);
-  margin: 1.2rem 2rem;
-}
-.sidebar a:hover {
-  background-color: rgb(119, 119, 255);
-  color: white;
-}
-.sidebar svg {
-  width: 20px;
-  position: absolute;
-  left: 2.3rem;
-  top: 0.6rem;
-}
-.sidebar p {
-  text-align: center;
-  font-size: small;
-}
-/* 
-===============
 page-layout
 ===============
 */
@@ -597,7 +618,7 @@ article:hover h4 {
 }
 @media screen and (width<900px) {
   .sidebar {
-    min-width: 34vw;
+    min-width: min-content;
   }
   .layout-container .one {
     grid-template-columns: 1fr;
@@ -612,5 +633,86 @@ article:hover h4 {
   .two article {
     width: 53vw;
     height: 35vh;
+  }
+  .main-layout p a {
+    display: inline-flex;
+    padding: 0 0.7rem;
+  }
+}
+/* 
+======================
+Library
+======================
+*/
+.library {
+  display: grid;
+  grid-template-columns: 17vw 83vw;
+}
+.library-layout {
+  text-align: left;
+  min-height: 100vh;
+}
+.library-head {
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  display: inline-flex;
+}
+.library-head h3 {
+  padding-left: 0.5rem;
+}
+.library-head a {
+  position: absolute;
+  right: 1rem;
+  color: var(--clr-blue-dark);
+}
+.library-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.1fr;
+  margin: 0.3rem 0rem;
+  align-items: center;
+  max-width: 100vw;
+}
+
+.list-poster {
+  position: relative;
+  transition: transform 0.3s;
+}
+.list-poster:hover {
+  transform: scale(1.1);
+}
+.list-poster img {
+  border-radius: 1.8rem;
+  width: 210px;
+}
+
+#rate-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 1.2rem;
+  display: flex;
+  background-color: #00000075;
+  color: rgb(255, 255, 255);
+  max-width: fit-content;
+  border-radius: 1.9rem;
+  padding-right: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+#rate-icon svg {
+  width: 15px;
+  padding-top: 0.3rem;
+  margin-right: 0.5rem;
+}
+@media screen and (width<900px) {
+  .library-layout {
+    grid-template-columns: 30vw 70vw;
+    padding-left: 9rem;
+  }
+  .library-list {
+    grid-template-columns: 1fr 1.5fr;
+  }
+  #rate-badge {
+    position: absolute;
+    left: 1rem;
   }
 }

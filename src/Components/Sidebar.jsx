@@ -17,6 +17,7 @@ const Sidebar = (props) => {
     <>
       <div className='sidebar'>
         <h4>Library</h4>
+
         <Link to='/movies/trending'>
           <FireIcon /> Trending
         </Link>
