@@ -15,6 +15,10 @@ import Trending from './src/Pages/Movies/SidebarNavigation/Trending';
 import TopRated from './src/Pages/Movies/SidebarNavigation/TopRated';
 import Recent from './src/Pages/Movies/SidebarNavigation/Recent';
 import Upcoming from './src/Pages/Movies/SidebarNavigation/Upcoming';
+import TrendingTv from './src/Pages/TvShows/SidebarNavigation/TrendingTv';
+import TopRatedTv from './src/Pages/TvShows/SidebarNavigation/TopRatedTv';
+import RecentTv from './src/Pages/TvShows/SidebarNavigation/RecentTv';
+import UpcomingTv from './src/Pages/TvShows/SidebarNavigation/UpcomingTv';
 
 const App = () => {
   return (
@@ -34,6 +38,10 @@ const App = () => {
         </Route>
         <Route path='tv'>
           <Route index element={<TvShows />} />
+          <Route path='trending' element={<TrendingTv />} />
+          <Route path='top_rated' element={<TopRatedTv />} />
+          <Route path='recent' element={<RecentTv />} />
+          <Route path='upcoming' element={<UpcomingTv />} />
           <Route path=':tvID' element={<SingleTvShow />} />
         </Route>
 

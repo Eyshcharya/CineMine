@@ -15,6 +15,7 @@ const TvLayout = () => {
   const { data: getUpcomingTvShow } = useGetUpcomingTvShowQuery();
 
   const url = `https://image.tmdb.org/t/p/original`;
+
   const latestTvShow = getLatestTvShow?.results[0]?.backdrop_path;
   const latId = getLatestTvShow?.results[0]?.id;
 

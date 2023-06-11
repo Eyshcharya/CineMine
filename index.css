@@ -40,9 +40,10 @@ svg {
   width: 25px;
 }
 button {
-  text-decoration: none;
   background: none;
   border: none;
+  font-size: inherit;
+  color: inherit;
 }
 li {
   list-style-type: none;
@@ -437,6 +438,7 @@ Single-Item
   position: relative;
   top: 0.2rem;
 }
+
 .addToFavoriteText {
   position: absolute;
   top: -0.5rem;
@@ -469,6 +471,7 @@ Single-Item
   font-size: 23px;
   font-weight: 70px;
 }
+
 .vote-container {
   display: flex;
   background-color: #0000004a;
@@ -647,6 +650,7 @@ Library
 .library {
   display: grid;
   grid-template-columns: 17vw 83vw;
+  color: var(--clr-blue-dark);
 }
 .library-layout {
   text-align: left;
@@ -715,4 +719,44 @@ Library
     position: absolute;
     left: 1rem;
   }
+  .library h3 {
+    min-width: max-content;
+    display: inline;
+  }
+}
+/* 
+===================
+Favorite Page
+===================
+*/
+.favorite-layout {
+  text-align: left;
+  min-height: 100vh;
+  position: absolute;
+}
+.favorite-head {
+  display: inline-flex;
+}
+.favorite-head button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  background-color: rgb(212, 245, 255);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #003a7b;
+}
+.library-list h2 {
+  min-width: max-content;
+}
+.favorite-layout .remove-btn {
+  position: absolute;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 1, 52, 0.616);
+  color: rgb(255, 255, 255);
+}
+.favorite-head button:hover {
+  transform: scale(1.1);
 }

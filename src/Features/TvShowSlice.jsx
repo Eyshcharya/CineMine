@@ -7,7 +7,7 @@ export const tvShowsSlice = ApiSlice.injectEndpoints({
       query: () => `/3/trending/tv/week?${key}`,
     }),
     getSingleTvShow: builder.query({
-      query: (id) => `/3/tv/${id}?${key}`,
+      query: (id) => `/3/tv/${id}?${key}&language=en-US`,
     }),
     getPopularTvShow: builder.query({
       query: () => `/3/tv/popular?${key}`,

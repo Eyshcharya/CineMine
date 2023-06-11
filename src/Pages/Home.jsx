@@ -23,6 +23,7 @@ const Home = () => {
 
   const handleMovieBtn = () => {
     setIsMovieBtn(true);
+    setIsTvBtn(false);
   };
   const handleTvBtn = () => {
     setIsTvBtn(true);

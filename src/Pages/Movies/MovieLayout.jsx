@@ -31,7 +31,7 @@ const MovieLayout = () => {
   const UpId = getUpcomingMovie?.results[1]?.id;
 
   const handleBtn = (id) => {
-    console.log(id);
+    // console.log(id);
     localStorage.setItem('IdHolder', JSON.stringify(id));
   };
 
