@@ -227,6 +227,7 @@ Home
   border-bottom-right-radius: 2rem;
   min-width: 10vw;
   background-color: rgb(212, 245, 255);
+  color: #003a7b;
 }
 .head section {
   position: relative;
@@ -307,9 +308,9 @@ Home
   margin: 0 0.5rem;
   padding: 0.5rem 0.8rem;
   border-radius: 2rem;
-  background-color: rgb(212, 245, 255);
   font-size: 1rem;
   font-weight: bold;
+  background-color: rgb(212, 245, 255);
   color: #003a7b;
 }
 
