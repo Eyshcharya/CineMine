@@ -18,8 +18,8 @@ const MovieLayout = () => {
   const latestMovie = getLatestMovie?.results[0]?.backdrop_path;
   const latId = getLatestMovie?.results[0]?.id;
 
-  const PopularMovie = getPopularMovie?.results[0]?.backdrop_path;
-  const PopId = getPopularMovie?.results[0]?.id;
+  const PopularMovie = getPopularMovie?.results[1]?.backdrop_path;
+  const PopId = getPopularMovie?.results[1]?.id;
 
   const TopRatedMovie = getTopRatedMovie?.results[0]?.backdrop_path;
   const TopId = getTopRatedMovie?.results[0]?.id;
