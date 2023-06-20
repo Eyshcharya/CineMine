@@ -29,6 +29,9 @@ const Home = () => {
     setIsTvBtn(true);
     setIsMovieBtn(false);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>
@@ -47,7 +50,11 @@ const Home = () => {
                 name=''
                 id=''
               />
-              <button className='search-btn' type='submit'>
+              <button
+                className='search-btn'
+                type='submit'
+                onClick={handleSubmit}
+              >
                 Search
               </button>
             </div>
