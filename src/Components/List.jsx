@@ -15,7 +15,7 @@ const List = ({ id, original_title, vote_average, poster_path }) => {
           <div className='rate-icon' id='rate-icon'>
             <StarIcon />
           </div>
-          <h5>{vote_average.toFixed(1)}</h5>
+          <h5>{vote_average?.toFixed(1)}</h5>
         </div>
         <button
           onClick={() => {
