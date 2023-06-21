@@ -7,10 +7,13 @@ import { useGetTrendingMoviesQuery } from '../Features/MovieSlice';
 
 import TrendingMovies from './Movies/TrendingMovies';
 import TrendingTvShows from './TvShows/TrendingTvShows';
+import Search from '../Components/Search';
 
 const Home = () => {
   const [isMovieBtn, setIsMovieBtn] = useState(true);
   const [isTvBtn, setIsTvBtn] = useState(false);
+  const [search, setSearch] = useState('');
+  const [isSearchBtn, setIsSearchBtn] = useState(false);
 
   const { isError, isLoading } = useGetTrendingMoviesQuery();
 
@@ -31,6 +34,7 @@ const Home = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSearchBtn(true);
   };
 
   return (
@@ -47,8 +51,11 @@ const Home = () => {
                 className='search'
                 type='text'
                 placeholder=' Search Movie / TV Show'
-                name=''
-                id=''
+                name='search'
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
               />
               <button
                 className='search-btn'
@@ -67,13 +74,21 @@ const Home = () => {
             <div className='wave wave4'></div>
           </section>
         </div>
-        <div className='page-text'>
-          <h3>Trending Now </h3>
-          <button onClick={handleMovieBtn}> Movies</button>
-          <button onClick={handleTvBtn}>TV Shows</button>
-        </div>
-        {isMovieBtn && <TrendingMovies />}
-        {isTvBtn && <TrendingTvShows />}
+        {isSearchBtn ? (
+          <>
+            <Search search={search} />
+          </>
+        ) : (
+          <>
+            <div className='page-text'>
+              <h3>Trending Now </h3>
+              <button onClick={handleMovieBtn}> Movies</button>
+              <button onClick={handleTvBtn}>TV Shows</button>
+            </div>
+            {isMovieBtn && <TrendingMovies />}
+            {isTvBtn && <TrendingTvShows />}
+          </>
+        )}
       </div>
       <Footer />
     </div>
