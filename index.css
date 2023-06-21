@@ -228,6 +228,7 @@ Home
   min-width: 10vw;
   background-color: rgb(212, 245, 255);
   color: #003a7b;
+  font-weight: 600;
 }
 .head section {
   position: relative;
@@ -550,6 +551,7 @@ page-layout
 .main-layout p {
   text-align: left;
   font-size: medium;
+  color: #161d6f;
 }
 .main-layout p a {
   color: #3746f2;
@@ -760,4 +762,31 @@ Favorite Page
 }
 .favorite-head button:hover {
   transform: scale(1.1);
+}
+/* 
+===================
+Genre Page
+===================
+*/
+
+#genre-head {
+  min-width: max-content;
+}
+.genre-list button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  background-color: rgb(212, 245, 255);
+  color: #161d6f;
+  margin: 0.6rem 0.7rem;
+  min-width: 100px;
+}
+.genre-list button:hover {
+  color: crimson;
+  transform: scale(1.2);
+}
+.selected-genre h2 {
+  padding: 1rem 2rem;
+  padding-top: 4rem;
 }
