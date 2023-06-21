@@ -6,13 +6,10 @@ export const tvShowsSlice = ApiSlice.injectEndpoints({
     getTrendingTvShows: builder.query({
       query: () => `/3/trending/tv/week?${key}`,
     }),
-    getSingleTvShow: builder.query({
-      query: (id) => `/3/tv/${id}?${key}&language=en-US`,
-    }),
     getPopularTvShow: builder.query({
       query: () => `/3/tv/popular?${key}`,
     }),
-    //
+
     getLatestTvShow: builder.query({
       query: () => `/3/tv/on_the_air?${key}`,
     }),
@@ -22,6 +19,21 @@ export const tvShowsSlice = ApiSlice.injectEndpoints({
     }),
     getUpcomingTvShow: builder.query({
       query: () => `/3/tv/airing_today?${key}`,
+    }),
+
+    // get single tv show
+    getSingleTvShow: builder.query({
+      query: (id) => `/3/tv/${id}?${key}&language=en-US`,
+    }),
+
+    //get Genre Id
+    getTvGenreId: builder.query({
+      query: () => `/3/genre/tv/list?${key}`,
+    }),
+
+    // get selected genre
+    getTvGenre: builder.query({
+      query: (genre_id) => `/3/discover/tv?${key}&with_genres=${genre_id}`,
     }),
   }),
 });
@@ -33,4 +45,6 @@ export const {
   useGetTopRatedTvShowQuery,
   useGetTrendingTvShowsQuery,
   useGetUpcomingTvShowQuery,
+  useGetTvGenreIdQuery,
+  useGetTvGenreQuery,
 } = tvShowsSlice;
