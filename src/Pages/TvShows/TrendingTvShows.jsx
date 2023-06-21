@@ -1,5 +1,5 @@
 import { useGetTrendingTvShowsQuery } from '../../Features/TvShowSlice';
-import List from '../../Components/TrendingList';
+import TrendingList from '../../Components/TrendingList';
 
 const TrendingTvShows = () => {
   const { data } = useGetTrendingTvShowsQuery();
@@ -9,7 +9,7 @@ const TrendingTvShows = () => {
       {/* The trending TV Shows are mapped here */}
       <div className='movie-container'>
         {data?.results?.map((tvs) => {
-          return <List key={tvs.id} {...tvs} />;
+          return <TrendingList key={tvs.id} {...tvs} />;
         })}
       </div>
     </div>

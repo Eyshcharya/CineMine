@@ -1,5 +1,5 @@
 import { useSearchQuery } from '../Features/ApiSlice';
-import List from './TrendingList';
+import TrendingList from './TrendingList';
 const Search = ({ search }) => {
   const { data } = useSearchQuery(search);
 
@@ -10,7 +10,7 @@ const Search = ({ search }) => {
       </div>
       <div className='movie-container'>
         {data?.results?.map((movie) => {
-          return <List key={movie.id} {...movie} />;
+          return <TrendingList key={movie.id} {...movie} />;
         })}
       </div>
     </>
