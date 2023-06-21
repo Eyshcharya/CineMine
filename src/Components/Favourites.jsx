@@ -23,12 +23,15 @@ const Favourites = () => {
     setIsMovieBtn(false);
   };
   const handleClearBtn = () => {
+    const Array = [];
     if (isMovieBtn) {
       setFavMovieArray([]);
-      localStorage.setItem('MovieArray', JSON.stringify(favMovieArray));
-    } else if (isTvBtn) {
+      localStorage.setItem('MovieArray', JSON.stringify(Array));
+    }
+
+    if (isTvBtn) {
       setFavTvArray([]);
-      localStorage.setItem('TvArray', JSON.stringify(favTvArray));
+      localStorage.setItem('TvArray', JSON.stringify(Array));
     }
   };
   return (
