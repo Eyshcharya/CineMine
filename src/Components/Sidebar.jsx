@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
 import {
   HomeIcon,
   MovieIcon,
@@ -12,24 +12,36 @@ import {
   UpcomingIcon,
 } from '../assets/icon.jsx';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
+  const type = JSON.parse(localStorage.getItem('TypeHolder')) || [];
+  const handleMovie = (movie) => {
+    console.log(movie);
+    localStorage.setItem('TypeHolder', JSON.stringify(movie));
+  };
+  const handleTv = (tv) => {
+    console.log(tv);
+    localStorage.setItem('TypeHolder', JSON.stringify(tv));
+  };
+
   return (
     <>
       <div className='sidebar'>
         <h4>Library</h4>
+        <>
+          <Link to={`/${type}/trending`}>
+            <FireIcon /> Trending
+          </Link>
+          <Link to={`/${type}/top_rated`}>
+            <StarsIcon /> Top Rated
+          </Link>
+          <Link to={`/${type}/recent`}>
+            <RecentIcon /> Recent
+          </Link>
+          <Link to={`/${type}/upcoming`}>
+            <UpcomingIcon /> Upcoming
+          </Link>
+        </>
 
-        <Link to='/movies/trending'>
-          <FireIcon /> Trending
-        </Link>
-        <Link to='/movies/top_rated'>
-          <StarsIcon /> Top Rated
-        </Link>
-        <Link to='/movies/recent'>
-          <RecentIcon /> Recent
-        </Link>
-        <Link to='/movies/upcoming'>
-          <UpcomingIcon /> Upcoming
-        </Link>
         <hr />
         <h4>Site Map</h4>
 
@@ -37,10 +49,22 @@ const Sidebar = (props) => {
           <HomeIcon /> Home
         </Link>
         <Link to='/movies'>
-          <MovieIcon /> Movies
+          <button
+            onClick={() => {
+              handleMovie('movies');
+            }}
+          >
+            <MovieIcon /> Movies
+          </button>
         </Link>
         <Link to='/tv'>
-          <TvIcon /> TV Shows
+          <button
+            onClick={() => {
+              handleTv('tv');
+            }}
+          >
+            <TvIcon /> TV Shows
+          </button>
         </Link>
         <Link to='/genre'>
           <GenreIcon /> Genres

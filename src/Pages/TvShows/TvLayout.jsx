@@ -15,10 +15,13 @@ const TvLayout = () => {
   const { data: getUpcomingTvShow } = useGetUpcomingTvShowQuery();
 
   const url = `https://image.tmdb.org/t/p/original`;
+
   const latestTvShow = getLatestTvShow?.results[0]?.backdrop_path;
   const latId = getLatestTvShow?.results[0]?.id;
 
-  const PopularTvShow = getPopularTvShow?.results[1]?.backdrop_path;
+  const PopularTvShow =
+    getPopularTvShow?.results[1]?.backdrop_path ||
+    getPopularTvShow?.results[1]?.poster_path;
   const PopId = getPopularTvShow?.results[1]?.id;
 
   const TopRatedTvShow = getTopRatedTvShow?.results[0]?.backdrop_path;

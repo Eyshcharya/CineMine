@@ -1,6 +1,7 @@
 import { useGetSingleTvShowQuery } from '../Features/TvShowSlice';
 import { HeartIcon, StarIcon } from '../assets/icon';
 import Navbar from './Navbar';
+import { useState } from 'react';
 
 const SingleTvShow = () => {
   const id = JSON.parse(localStorage.getItem('IdHolder')) || [];
@@ -23,6 +24,22 @@ const SingleTvShow = () => {
   const backgroundImg = `https://image.tmdb.org/t/p/original${backDrop}`;
   const posterImg = `https://image.tmdb.org/t/p/original${poster}`;
 
+  const [isBtn, setIsBtn] = useState(false);
+  const favTvArray = JSON.parse(localStorage.getItem('TvArray')) || [];
+
+  const handleFavBtn = () => {
+    const icon = document.querySelector('#Fav-btn svg');
+    setIsBtn(!isBtn);
+    if (!isBtn) {
+      icon.style.fill = 'white';
+      favTvArray.push(getTvShow);
+    } else {
+      icon.style.fill = 'none';
+      favTvArray.pop(getTvShow);
+    }
+    localStorage.setItem('TvArray', JSON.stringify(favTvArray));
+    console.log(favTvArray);
+  };
   return (
     <div>
       <div
@@ -55,16 +72,16 @@ const SingleTvShow = () => {
               {seasons > 1 ? `${seasons} seasons` : `${seasons} season`}
             </span>
             <div className='heart-icon'>
-              <button>
+              <button id='Fav-btn' onClick={handleFavBtn}>
                 <HeartIcon />
               </button>
             </div>
             <div className='addToFavoriteText'>
-              <p>Add to Favorites</p>
+              <p>{isBtn ? `Remove from Favorites` : `Add to Favorites`}</p>
             </div>
             <div className='addToFavoriteText'></div>
           </div>
-          <article className='overview'>
+          <div className='overview'>
             <p>{overview}</p>
             <div className='genres'>
               {genres?.length > 1 ? ` Genres : ` : `Genre : `}
@@ -76,7 +93,7 @@ const SingleTvShow = () => {
 
             <div>Released on: {date}</div>
             <div className='tagline'> {tagline && `"${tagline}"`}</div>
-          </article>
+          </div>
         </div>
       </div>
     </div>

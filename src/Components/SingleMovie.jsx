@@ -25,8 +25,20 @@ const SingleItem = () => {
   const posterImg = `https://image.tmdb.org/t/p/original/${poster}`;
 
   const [isBtn, setIsBtn] = useState(false);
+  const favMovieArray = JSON.parse(localStorage.getItem('MovieArray')) || [];
+
   const handleFavBtn = () => {
+    const icon = document.querySelector('#Fav-btn svg');
     setIsBtn(!isBtn);
+    if (!isBtn) {
+      icon.style.fill = 'white';
+      favMovieArray.push(getMovie);
+    } else {
+      icon.style.fill = 'none';
+      favMovieArray.pop(getMovie);
+    }
+    localStorage.setItem('MovieArray', JSON.stringify(favMovieArray));
+    console.log(favMovieArray);
   };
   return (
     <div className='Singe-Item-Container'>
@@ -58,7 +70,7 @@ const SingleItem = () => {
             <span className='year'>{year}</span>
             <span className='runtime'>{runtime} min</span>
             <div className='heart-icon'>
-              <button onClick={handleFavBtn}>
+              <button id='Fav-btn' onClick={handleFavBtn}>
                 <HeartIcon />
               </button>
             </div>
@@ -66,7 +78,7 @@ const SingleItem = () => {
               <p>{isBtn ? `Remove from Favorites` : `Add to Favorites`}</p>
             </div>
           </div>
-          <article className='overview'>
+          <div className='overview'>
             <p>{overview}</p>
 
             <div className='genres'>
@@ -79,7 +91,7 @@ const SingleItem = () => {
 
             <div>Released on: {date}</div>
             <div className='tagline'> {tagline && `"${tagline}"`}</div>
-          </article>
+          </div>
         </div>
       </div>
     </div>

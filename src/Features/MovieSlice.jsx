@@ -6,9 +6,6 @@ export const moviesSlice = ApiSlice.injectEndpoints({
     getTrendingMovies: builder.query({
       query: () => `/3/trending/movie/week?${key}`,
     }),
-    getSingleMovie: builder.query({
-      query: (id) => `/3/movie/${id}?${key}&language=en-US`,
-    }),
     getPopularMovie: builder.query({
       query: () => `/3/movie/popular?${key}`,
     }),
@@ -21,6 +18,21 @@ export const moviesSlice = ApiSlice.injectEndpoints({
     getUpcomingMovie: builder.query({
       query: () => `/3/movie/upcoming?${key}`,
     }),
+
+    // get single movie details
+    getSingleMovie: builder.query({
+      query: (id) => `/3/movie/${id}?${key}&language=en-US`,
+    }),
+
+    //get Genre Id
+    getMvGenreId: builder.query({
+      query: () => `/3/genre/movie/list?${key}`,
+    }),
+
+    // get selected genre
+    getMvGenre: builder.query({
+      query: (genre_id) => `/3/discover/movie?${key}&with_genres=${genre_id}`,
+    }),
   }),
 });
 
@@ -31,4 +43,6 @@ export const {
   useGetTopRatedMovieQuery,
   useGetTrendingMoviesQuery,
   useGetUpcomingMovieQuery,
+  useGetMvGenreIdQuery,
+  useGetMvGenreQuery,
 } = moviesSlice;
