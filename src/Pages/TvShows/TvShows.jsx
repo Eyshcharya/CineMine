@@ -7,15 +7,6 @@ const TvShows = () => {
     <>
       <Sidebar type={type} />
       <div className='main-layout'>
-        <p>
-          Popular Genres :<Link to=''>Adventure</Link>
-          <Link to=''>Thriller</Link>
-          <Link to=''>Horror</Link>
-          <Link to=''>Romance</Link>
-          <Link to=''>Sci-Fi</Link>
-          <Link to=''>Comedy</Link>
-          <Link to=''>Drama</Link>
-        </p>
         <TvLayout />
       </div>
     </>
