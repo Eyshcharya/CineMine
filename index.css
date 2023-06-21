@@ -45,6 +45,9 @@ button {
   font-size: inherit;
   color: inherit;
 }
+button:hover {
+  cursor: pointer;
+}
 li {
   list-style-type: none;
 }
