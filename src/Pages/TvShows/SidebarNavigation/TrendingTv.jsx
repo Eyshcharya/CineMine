@@ -1,11 +1,11 @@
 import Sidebar from '../../../Components/Sidebar';
 import { FireIcon, LibraryIcon } from '../../../assets/icon';
-import { useGetLatestTvShowQuery } from '../../../Features/TvShowSlice';
+import { useGetTrendingTvShowsQuery } from '../../../Features/TvShowSlice';
 import List from '../../../Components/List';
 import { Link } from 'react-router-dom';
 
 const TrendingTv = () => {
-  const { data } = useGetLatestTvShowQuery();
+  const { data } = useGetTrendingTvShowsQuery();
 
   return (
     <>
@@ -16,7 +16,7 @@ const TrendingTv = () => {
         <div className='library-layout'>
           <div className='library-head'>
             <FireIcon />
-            <h3>Recent Tv Shows</h3>
+            <h3>Trending Tv Shows</h3>
             <Link to='/tv'>
               <LibraryIcon />
             </Link>
